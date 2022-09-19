@@ -1,6 +1,7 @@
 import IconButton from '@mui/material/IconButton';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import Stop from '@mui/icons-material/Stop';
+import { PlayStopWrapperSelector } from './PlayStopButton.constants';
 
 interface IPlayStopButtonProps {
   isActive?: boolean;
@@ -12,7 +13,7 @@ const PlayStopButton = (props: IPlayStopButtonProps) => {
   };
 
   return (
-    <div data-cy="action-play-stop-btn-wrapper">
+    <div data-cy={PlayStopWrapperSelector}>
       <IconButton
         aria-label="action-play-stop-btn"
         color="primary"

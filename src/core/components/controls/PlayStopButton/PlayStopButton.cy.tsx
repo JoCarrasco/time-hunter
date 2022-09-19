@@ -1,8 +1,7 @@
 import PlayStopButton from './PlayStopButton';
+import { PlayStopWrapperSelector } from './PlayStopButton.constants';
 
-const PlayStopWrapperSelector = '[data-cy="action-play-stop-btn-wrapper"]';
-
-describe('[Core Components] <PlayStopButton>', () => {
+describe('CoreComponents/PlayStopButton', () => {
   it('mounts', () => {
     cy.mount(<PlayStopButton />);
   });
