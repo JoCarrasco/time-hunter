@@ -87,11 +87,12 @@ describe('CoreComponents/TimerDisplay', () => {
     const date = new Date();
     date.setHours(date.getHours() - 2);
     date.setMinutes(date.getMinutes() - 30);
-    cy.mount(<TimerDisplay start={date} />);
-    cy.get(CY_SELECTOR_TIMER_DISPLAY_INPUT)
-      .then((input) => {
-        cy.wrap(input.val() === '02:30:00');
-      })
-      .should('equal', true);
+     date.setSeconds(date.getSeconds() - 5);
+     cy.mount(<TimerDisplay start={date} />);
+     cy.get(CY_SELECTOR_TIMER_DISPLAY_INPUT)
+       .then((input) => {
+         cy.wrap(input.val() === '02:30:05');
+       })
+       .should('equal', true);
   });
 });

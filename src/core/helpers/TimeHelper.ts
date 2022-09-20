@@ -31,7 +31,7 @@ export class TimeHelper {
 
   static getDiffBetweenDatesInMinutes(dateA: Date, dateB: Date): number {
     const diff = Math.abs(dateA.getTime() - dateB.getTime());
-    return Math.floor((diff/1000)/60);
+    return (diff/1000) / 60;
   }
 
   static durationStringToFullTimeObject(str: string): IFullTimeObject | null {
