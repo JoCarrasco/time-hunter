@@ -13,12 +13,10 @@ interface ITimerDisplayProps {
 }
 
 const TimerDisplay = (props: ITimerDisplayProps) => {
-  const [val, setVal] = useState(
-    props.start
-      ? TimeHelper.dateRangeToDurationString(props.start, new Date())
-      : DEFAULT_TIMER_DISPLAY_STRING,
-  );
-  const [lastVal, setLastVal] = useState(val);
+  const defaultVal = props.start
+    ? TimeHelper.dateRangeToDurationString(props.start, new Date())
+    : DEFAULT_TIMER_DISPLAY_STRING;
+  const [lastVal, setLastVal] = useState(defaultVal);
   const inputRef = useRef<HTMLInputElement>();
 
   const handleBlur = () => {
@@ -62,11 +60,10 @@ const TimerDisplay = (props: ITimerDisplayProps) => {
       <TextField
         hiddenLabel
         id="filled-hidden-label-small"
-        defaultValue={val}
+        defaultValue={defaultVal}
         variant="filled"
         size="small"
         inputRef={inputRef}
-        onChange={(e) => setVal(e.target.value)}
         inputProps={{
           'data-cy': CY_SELECTOR_VAL_TIMER_DISPLAY_INPUT,
         }}
