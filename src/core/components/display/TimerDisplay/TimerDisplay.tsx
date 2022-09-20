@@ -66,6 +66,7 @@ const TimerDisplay = (props: ITimerDisplayProps) => {
         variant="filled"
         size="small"
         inputRef={inputRef}
+        onChange={(e) => setVal(e.target.value)}
         inputProps={{
           'data-cy': CY_SELECTOR_VAL_TIMER_DISPLAY_INPUT,
         }}
