@@ -22,7 +22,16 @@ export class TimeHelper {
     const strHour = hours.toLocaleString('en-US', formattingConfig);
     const strSeconds = seconds.toLocaleString('en-US', formattingConfig);
     
-    return `${strHour}:${strMinute}:${strSeconds}`
+    return `${strHour}:${strMinute}:${strSeconds}`;
+  }
+
+  static dateRangeToDurationString(dateA: Date, dateB: Date): string {
+    return this.convertNumbersToDurationString(this.getDiffBetweenDatesInMinutes(dateA, dateB).toString());
+  }
+
+  static getDiffBetweenDatesInMinutes(dateA: Date, dateB: Date): number {
+    const diff = Math.abs(dateA.getTime() - dateB.getTime());
+    return Math.floor((diff/1000)/60);
   }
 
   static durationStringToFullTimeObject(str: string): IFullTimeObject | null {
@@ -84,7 +93,6 @@ export class TimeHelper {
   static indexOfEmptySpace(arr: string[]) {
     return arr.findIndex(x => x === "");
   }
-
 
   static isOnlyNumbers(str: string): boolean {
     return !isNaN(parseFloat(str));
