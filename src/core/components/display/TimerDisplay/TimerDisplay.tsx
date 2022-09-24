@@ -1,19 +1,22 @@
 import { useRef, useState } from 'react';
 import TextField from '@mui/material/TextField';
-import constants from './TimerDisplay.contants';
 import './TimerDisplay.scss';
+import {
+  getDefaultTimerVal,
+  convertStrToDuration,
+  selectors,
+  values,
+} from './TimerDisplay.contants';
 
 interface ITimerDisplayProps {
   start?: Date;
 }
 
-const { vals, selectors, methods } = constants;
-
 const TimerDisplay: React.FC<ITimerDisplayProps> = (
   props: ITimerDisplayProps,
 ) => {
   const inputRef = useRef<HTMLInputElement>();
-  const defaultVal = methods.getDefaultTimerVal(props.start);
+  const defaultVal = getDefaultTimerVal(props.start);
   const [lastVal, setLastVal] = useState(defaultVal);
 
   const handleBlur = () => {
@@ -25,12 +28,12 @@ const TimerDisplay: React.FC<ITimerDisplayProps> = (
     const inputVal = inputRef.current.value;
     if (inputVal === '') {
       // If is empty, return default value
-      inputRef.current.value = vals.defaultTimerVal;
-      setLastVal(vals.defaultTimerVal);
+      inputRef.current.value = values.defaultTimerVal;
+      setLastVal(values.defaultTimerVal);
       return;
     }
 
-    inputRef.current.value = methods.convertStrToDuration(inputVal, lastVal);
+    inputRef.current.value = convertStrToDuration(inputVal, lastVal);
     setLastVal(inputRef.current.value);
   };
 

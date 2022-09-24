@@ -1,6 +1,5 @@
-import { Input, TextField } from '@mui/material';
-import constants from './SharedTextField.constants';
-const { selectors } = constants;
+import { Input } from '@mui/material';
+import { selectors } from './SharedTextField.constants';
 
 interface ISharedTextFieldProps {
   defaultValue?: string;

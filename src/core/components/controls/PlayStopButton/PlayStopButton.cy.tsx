@@ -1,5 +1,5 @@
 import PlayStopButton from './PlayStopButton';
-import selectors from './PlayStopButton.constants';
+import { cySelectors } from './PlayStopButton.constants';
 
 describe('CoreComponents/PlayStopButton', () => {
   it('mounts', () => {
@@ -8,8 +8,8 @@ describe('CoreComponents/PlayStopButton', () => {
 
   it('idle and active contains a button', () => {
     cy.mount(<PlayStopButton />);
-    cy.get(selectors.cyBtnWrapper).should('contain.html', 'button');
+    cy.get(cySelectors.btnWrapper).should('contain.html', 'button');
     cy.mount(<PlayStopButton isActive={true} />);
-    cy.get(selectors.cyBtnWrapper).should('contain.html', 'button');
+    cy.get(cySelectors.btnWrapper).should('contain.html', 'button');
   });
 });

@@ -1,7 +1,7 @@
 import IconButton from '@mui/material/IconButton';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import Stop from '@mui/icons-material/Stop';
-import selectors from './PlayStopButton.constants';
+import { selectors } from './PlayStopButton.constants';
 
 interface IPlayStopButtonProps {
   isActive?: boolean;

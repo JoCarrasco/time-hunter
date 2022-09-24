@@ -1,6 +1,5 @@
 import SharedTextField from './SharedTextField';
-import constants from './SharedTextField.constants';
-const { selectors } = constants;
+import { cySelectors } from './SharedTextField.constants';
 
 describe('CoreComponents/TimeLog', () => {
   it('mounts', () => {
@@ -10,7 +9,7 @@ describe('CoreComponents/TimeLog', () => {
   it('is editable', () => {
     const testStr = 'Hello World Test!';
     cy.mount(<SharedTextField />);
-    cy.get(selectors.cyTextField)
+    cy.get(cySelectors.textField)
       .type(testStr)
       .then((input) => {
         cy.wrap(input.val() === testStr);
