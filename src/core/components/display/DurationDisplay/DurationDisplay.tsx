@@ -1,7 +1,8 @@
-import { Typography, Button, Grid, Stack } from '@mui/material';
+import { Typography, Button, Stack, Divider } from '@mui/material';
+import { blueGrey } from '@mui/material/colors';
 import { TimeHelper } from '../../../helpers/TimeHelper';
 import { selectors } from './DurationDisplay.constants';
-import { blueGrey } from '@mui/material/colors';
+
 interface IDurationDisplayProps {
   start: Date;
   end: Date;
@@ -23,24 +24,28 @@ const DurationDisplay: React.FC<IDurationDisplayProps> = (
   const endDisplay = formatDate(props.end);
 
   return (
-    <Stack direction="row" spacing={2} alignItems="center">
-      <Typography
-        data-cy={selectors.start}
-        variant="button"
-        color={blueGrey['900']}
+    <Stack direction="row" spacing={1} alignItems="center">
+      <Stack
+        spacing={1}
+        direction="row"
+        divider={<Divider orientation="vertical" flexItem />}
       >
-        {startDisplay}
-      </Typography>
-      <Typography variant="button" color={blueGrey['900']}>
-        -
-      </Typography>
-      <Typography
-        data-cy={selectors.end}
-        variant="button"
-        color={blueGrey['900']}
-      >
-        {endDisplay}
-      </Typography>
+        <Typography
+          data-cy={selectors.start}
+          variant="button"
+          color={blueGrey['900']}
+        >
+          {startDisplay}
+        </Typography>
+        <Typography
+          data-cy={selectors.end}
+          variant="button"
+          color={blueGrey['900']}
+        >
+          {endDisplay}
+        </Typography>
+      </Stack>
+
       <Button
         size="small"
         variant="outlined"
