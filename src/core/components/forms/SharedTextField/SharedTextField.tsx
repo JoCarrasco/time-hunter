@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { Input, TextField } from '@mui/material';
 import constants from './SharedTextField.constants';
 const { selectors } = constants;
 
@@ -10,18 +10,12 @@ const SharedTextField: React.FC<ISharedTextFieldProps> = (
   props: ISharedTextFieldProps,
 ) => {
   return (
-    <TextField
-      hiddenLabel
+    <Input
       defaultValue={props.defaultValue}
-      variant="filled"
-      size="small"
+      disableUnderline={true}
       inputProps={{
         'data-cy': selectors.textField,
       }}
-      InputProps={{
-        disableUnderline: true,
-      }}
-      fullWidth
     />
   );
 };
