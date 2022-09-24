@@ -7,22 +7,20 @@ interface IDurationDisplayProps {
   end: Date;
 }
 
-function formatAMPM(date: Date) {
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  let ampm = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  const rminutes = minutes < 10 ? '0' + minutes : minutes;
-  return (hours + ':' + rminutes + ' ' + ampm).toUpperCase();
+function formatDate(date: Date) {
+  return date.toLocaleString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  });
 }
 
 const DurationDisplay: React.FC<IDurationDisplayProps> = (
   props: IDurationDisplayProps,
 ) => {
   const duration = TimeHelper.dateRangeToDurationString(props.start, props.end);
-  const startDisplay = formatAMPM(props.start);
-  const endDisplay = formatAMPM(props.end);
+  const startDisplay = formatDate(props.start);
+  const endDisplay = formatDate(props.end);
 
   return (
     <Stack direction="row" spacing={2} alignItems="center">
