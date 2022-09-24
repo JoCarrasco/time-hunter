@@ -22,7 +22,7 @@ const vals = {
 const methods = {
   getDefaultTimerVal: (start?: Date) => {
     return start
-      ? methods.durationFromRange(start, new Date())
+      ? TimeHelper.dateRangeToDurationString(start, new Date())
       : vals.defaultTimerVal;
   },
   convertStrToDuration: (str: string, lastStr: string) => {
@@ -30,10 +30,6 @@ const methods = {
       ? TimeHelper.convertNumbersToDurationString(str)
       : methods.formatDuration(str, lastStr);
   },
-  durationFromRange: (dateA: Date, dateB: Date) => {
-    return TimeHelper.dateRangeToDurationString(dateA, dateB) 
-  }
-  ,
   formatDuration: (str: string, lastStr: string) => {
     const timeObj = TimeHelper.durationStringToFullTimeObject(str);
     return timeObj !== null
