@@ -9,7 +9,9 @@ interface ITimerDisplayProps {
 
 const { vals, selectors, methods } = constants;
 
-const TimerDisplay = (props: ITimerDisplayProps) => {
+const TimerDisplay: React.FC<ITimerDisplayProps> = (
+  props: ITimerDisplayProps,
+) => {
   const inputRef = useRef<HTMLInputElement>();
   const defaultVal = methods.getDefaultTimerVal(props.start);
   const [lastVal, setLastVal] = useState(defaultVal);
@@ -45,7 +47,6 @@ const TimerDisplay = (props: ITimerDisplayProps) => {
     >
       <TextField
         hiddenLabel
-        id="filled-hidden-label-small"
         defaultValue={defaultVal}
         variant="filled"
         size="small"

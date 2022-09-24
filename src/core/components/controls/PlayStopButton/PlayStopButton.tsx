@@ -7,7 +7,9 @@ interface IPlayStopButtonProps {
   isActive?: boolean;
 }
 
-const PlayStopButton = (props: IPlayStopButtonProps) => {
+const PlayStopButton: React.FC<IPlayStopButtonProps> = (
+  props: IPlayStopButtonProps,
+) => {
   const ActionIcon = () => {
     return props.isActive ? <Stop /> : <PlayArrowIcon />;
   };
