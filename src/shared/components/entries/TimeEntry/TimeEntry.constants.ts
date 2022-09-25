@@ -1,4 +1,4 @@
-import { TestUtils } from './../../../../testing/TestUtils';
+import { TestUtils } from '../../../../testing/TestUtils';
 // Selectors
 
 const TIME_ENTRY_WRAPPER = 'time-entry-wrapper';
@@ -24,5 +24,11 @@ export const values = {
     start: TIME_ENTRY_DATE_START_TEST_EXPECTED_OUTPUT,
     end: TIME_ENTRY_DATE_END_TEST_EXPECTED_OUTPUT,
     duration: TIME_ENTRY_DURATION_TEST_EXPECTED_OUTPUT
+  },
+  timeEntry: {
+    start: TIME_ENTRY_DATE_START_TEST,
+    end: TIME_ENTRY_DATE_END_TEST,
+    id: "acvb-d1ef81-d121f6h-fkuyio",
+    description: "Hello World Timer"
   }
 }
